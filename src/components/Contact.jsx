@@ -9,8 +9,8 @@ const details = [
   { icon: 'mail', label: 'Email', value: contact.email, href: `mailto:${contact.email}` },
   { icon: 'phone', label: 'Phone', value: contact.phone, href: `tel:${contact.phone.replace(/\s/g, '')}` },
   { icon: 'pin', label: 'Location', value: contact.location },
-  { icon: 'github', label: 'GitHub', value: 'github.com/feonapinon', href: contact.github },
-  { icon: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/feonapinon', href: contact.linkedin },
+  { icon: 'github', label: 'GitHub', value: 'github.com/Serenapiee', href: contact.github },
+  { icon: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/feona-esguerra', href: contact.linkedin },
 ]
 
 function validate(values) {
@@ -38,23 +38,45 @@ export function Contact() {
     message: '',
   })
   const [errors, setErrors] = useState({})
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState('idle')
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setValues((current) => ({ ...current, [name]: value }))
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     const nextErrors = validate(values)
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length) {
-      setSubmitted(false)
+      setStatus('idle')
       return
     }
-    setSubmitted(true)
-    setValues({ name: '', email: '', subject: '', message: '' })
+
+    setStatus('sending')
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${contact.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: values.name.trim(),
+          email: values.email.trim(),
+          _subject: values.subject.trim(),
+          message: values.message.trim(),
+        }),
+      })
+      if (!response.ok) {
+        throw new Error('Could not send message')
+      }
+      setStatus('success')
+      setValues({ name: '', email: '', subject: '', message: '' })
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -101,10 +123,16 @@ export function Contact() {
           </ul>
 
           <form className={styles.form} onSubmit={handleSubmit} noValidate data-reveal="delay">
-            {submitted ? (
+            {status === 'success' ? (
               <p className={styles.status} role="status">
-                Thanks — your message is ready to send. Replace this form with your email service when
-                you go live.
+                Thanks — your message was sent to {contact.email}. If this is the first time, check
+                that inbox and confirm FormSubmit so future messages arrive automatically.
+              </p>
+            ) : null}
+            {status === 'error' ? (
+              <p className={styles.statusError} role="alert">
+                Could not send right now.{' '}
+                <a href={`mailto:${contact.email}`}>Email {contact.email}</a> instead.
               </p>
             ) : null}
 
@@ -181,8 +209,12 @@ export function Contact() {
               ) : null}
             </div>
 
-            <button className={`btn btn-primary ${styles.submit}`} type="submit">
-              Send Message
+            <button
+              className={`btn btn-primary ${styles.submit}`}
+              type="submit"
+              disabled={status === 'sending'}
+            >
+              {status === 'sending' ? 'Sending…' : 'Send Message'}
             </button>
           </form>
         </div>

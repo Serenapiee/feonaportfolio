@@ -105,6 +105,24 @@
   font-size: 0.95rem;
 }
 
+.statusError {
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--error) 14%, transparent);
+  color: var(--error);
+  font-size: 0.95rem;
+}
+
+.statusError a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
 @media (max-width: 52rem) {
   .layout {
     grid-template-columns: 1fr;

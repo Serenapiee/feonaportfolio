@@ -1,7 +1,7 @@
 export const contact = {
-  email: 'hello@feonapinon.dev',
-  phone: '+63 900 000 0000',
+  email: 'feonaesguerra@gmail.com',
+  phone: '0956 089 7982',
   location: 'Philippines',
-  github: '#',
-  linkedin: '#',
+  github: 'https://github.com/Serenapiee',
+  linkedin: 'https://www.linkedin.com/in/feona-esguerra-311a82436/',
 }
