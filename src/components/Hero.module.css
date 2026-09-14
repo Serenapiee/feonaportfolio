@@ -70,7 +70,7 @@
   width: calc(100% - 1.1rem);
   height: calc(100% - 1.1rem);
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 12%;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);

@@ -1,4 +1,4 @@
-import profilePhoto from '../assets/profile-portrait.jpg'
+import profilePhoto from '../assets/profile-portrait.png'
 import styles from './Hero.module.css'
 
 export function Hero() {
@@ -31,8 +31,8 @@ export function Hero() {
             className={styles.photo}
             src={profilePhoto}
             alt="Portrait of Princess Feona Lei Piñon"
-            width="704"
-            height="880"
+            width="880"
+            height="1024"
           />
         </div>
       </div>
