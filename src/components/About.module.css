@@ -1,0 +1,57 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
+  gap: var(--space-7);
+  align-items: start;
+  margin-top: var(--space-6);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  font-size: 1.0625rem;
+  color: var(--muted);
+}
+
+.copy p {
+  max-width: 38rem;
+}
+
+.facts {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--border);
+}
+
+.fact {
+  padding: var(--space-5);
+  background: var(--surface);
+}
+
+.fact dt {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.fact dd {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+@media (max-width: 52rem) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}

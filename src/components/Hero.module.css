@@ -1,0 +1,90 @@
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+  align-items: center;
+  gap: var(--space-7);
+  min-height: calc(100vh - var(--header-h));
+  padding-block: var(--space-8);
+}
+
+.kicker {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.role {
+  margin-top: var(--space-4);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.intro {
+  max-width: 34rem;
+  margin-top: var(--space-5);
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: var(--space-6);
+}
+
+.portraitWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.portrait {
+  position: relative;
+  width: min(100%, 22rem);
+  aspect-ratio: 4 / 5;
+}
+
+.frame {
+  position: absolute;
+  inset: 1.1rem 0 0 1.1rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.photo {
+  position: relative;
+  z-index: 1;
+  width: calc(100% - 1.1rem);
+  height: calc(100% - 1.1rem);
+  object-fit: cover;
+  object-position: center 18%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+@media (max-width: 52rem) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: unset;
+    padding-block: var(--space-7) var(--space-6);
+  }
+
+  .portrait {
+    width: min(100%, 18rem);
+    margin-inline: auto;
+  }
+}
