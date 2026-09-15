@@ -26,7 +26,6 @@ export function Hero() {
 
       <div className={styles.portraitWrap} data-reveal="delay">
         <div className={styles.portrait}>
-          <div className={styles.frame} aria-hidden="true" />
           <img
             className={styles.photo}
             src={profilePhoto}

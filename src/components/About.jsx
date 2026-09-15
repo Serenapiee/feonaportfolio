@@ -8,22 +8,19 @@ export function About() {
           About
         </p>
         <h2 id="about-title" className="section-title" data-reveal>
-          A developer who cares how a site feels to use
+          A beginner developer, always learning and building.
         </h2>
         <div className={styles.grid}>
           <div className={styles.copy} data-reveal>
             <p>
-              I&apos;m Princess Feona Lei Piñon. I build websites that stay out of the way — clear
-              structure, readable type, and layouts that still make sense on a phone.
+              I&apos;m Princess Feona Lei Piñon, a beginner web developer passionate about creating
+              clean, responsive, and user-friendly websites. I work with HTML, CSS, JavaScript, and
+              React while continuously improving my skills through personal projects and hands-on
+              learning.
             </p>
             <p>
-              I started with HTML and CSS, then moved into JavaScript and React because I wanted more
-              control over how a page looks and behaves. I like the quiet work: spacing, hierarchy, and
-              making sure a button does what you expect.
-            </p>
-            <p>
-              I&apos;m looking for internships, freelance projects, and chances to keep growing — especially
-              work that values clean design as much as working code.
+              I&apos;m open to internships, freelance opportunities, and projects where I can gain
+              experience, contribute, and grow as a developer.
             </p>
           </div>
           <dl className={styles.facts} data-reveal="delay">
